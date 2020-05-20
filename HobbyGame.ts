@@ -7,6 +7,9 @@ export class HobbyGame{
     constructor( games: Videogame[]){
         this.games = games
     }
+    public toJson():object{
+        return {"Games": this.games }
+    }
     public allGamesPriceFrom(p: Platform): number{
         let total:number = 0
         this.games.forEach(game => {

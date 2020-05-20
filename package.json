@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jiaen-p/HobbyGame/issues"
   },
-  "homepage": "https://github.com/jiaen-p/HobbyGame#readme"
+  "homepage": "https://github.com/jiaen-p/HobbyGame#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.0"
+  }
 }
