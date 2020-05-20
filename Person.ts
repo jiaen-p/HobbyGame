@@ -3,7 +3,7 @@ export class Person{
     private nationality: string
     private profession: string
     private experienceYears: number
-    constructor(name: string, nationality: string, profession: string, experienceYears: number){
+    constructor(name: string, nationality: string, profession: "developer" | "tester" | "manager" | "director", experienceYears: number){
         this.name = name
         this.nationality = nationality
         this.profession = profession
