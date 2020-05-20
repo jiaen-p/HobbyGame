@@ -1,9 +1,16 @@
+enum profession{
+    developer = "developer",
+    tester = "tester",
+    manager = "manager",
+    director = "director"
+}
+type Profesion = keyof typeof profession
 export class Person{
     private name: string
     private nationality: string
-    private profession: string
+    private profession: Profesion
     private experienceYears: number
-    constructor(name: string, nationality: string, profession: "developer" | "tester" | "manager" | "director", experienceYears: number){
+    constructor(name: string, nationality: string, profession: Profesion, experienceYears: number){
         this.name = name
         this.nationality = nationality
         this.profession = profession
@@ -37,10 +44,10 @@ export class Person{
     public setNationality(nationality:string){
         this.nationality = nationality
     }
-    public getProfession():string{
+    public getProfession():Profesion{
         return this.profession
     }
-    public setProfession(profession:string){
+    public setProfession(profession:Profesion){
         this.profession = profession
     }
     public getExperienceYears():number{
