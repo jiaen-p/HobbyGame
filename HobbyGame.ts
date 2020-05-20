@@ -1,0 +1,69 @@
+import { Person } from './Person'
+import { Platform } from './Platform'
+import { Videogame } from './Videogame'
+
+export class HobbyGame{
+    private games: Videogame[]
+    constructor( games: Videogame[]){
+        this.games = games
+    }
+    public allGamesPriceFrom(p: Platform): number{
+        let total:number = 0
+        this.games.forEach(game => {
+            if (game.availableInPlatform(p)){
+                total += game.getPrice()
+            }
+        })
+        return total
+    }
+    public allGamesPrice():number{
+        let total:number = 0
+        this.games.forEach(game => {
+            total += game.getPrice()
+        })
+        return total
+    }
+    public allGamesInLanguage(language:string): Videogame[]{
+        let games: Videogame[] = []
+        this.games.forEach(game => {
+            if( game.availableInLanguage(language)){
+                games.push(game)
+            }
+        })
+        return games
+    }
+    public allGamesDevelopedBy(dev: Person): Videogame[]{
+        let games: Videogame[] = []
+        this.games.forEach(game => {
+            if( game.developedBy(dev)){
+                games.push(game)
+            }
+        })
+        return games
+    }
+    public allGamesAvailableForPlatformAndInLanguague(p:Platform, language:string):Videogame[]{
+        let games: Videogame[] = []
+        this.games.forEach(game => {
+            if(game.availableInLanguage(language) && game.availableInPlatform(p)){
+                games.push(game)
+            }
+        })
+        return games
+    }
+    public allGamesAvailableForPlatformAndInLanguagueAndGreterThanFive(p:Platform, language:string){
+        let games:Videogame[] = this.allGamesAvailableForPlatformAndInLanguague(p,language)
+        let g:Videogame[] = []
+        games.forEach(game => {
+            if (game.getScore() > 5){
+                g.push(game)
+            }
+        })
+        return g
+    }
+    public getGames(): Videogame[] {
+        return this.games
+    }
+    public setGames(value: Videogame[]) {
+        this.games = value
+    }
+}
