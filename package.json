@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jiaen-p/HobbyGame#readme",
   "dependencies": {
-    "fs-extra": "^9.0.0"
+    "fs-extra": "^9.0.0",
+    "readline-sync": "^1.4.10"
   }
 }

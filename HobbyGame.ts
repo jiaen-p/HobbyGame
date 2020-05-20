@@ -1,11 +1,14 @@
 import { Person } from './Person'
 import { Platform } from './Platform'
 import { Videogame } from './Videogame'
-
+import * as fs from 'fs-extra'
 export class HobbyGame{
     private games: Videogame[]
     constructor( games: Videogame[]){
         this.games = games
+    }
+    public writeOnJSONFile(filename:string){
+        fs.writeJsonSync('./' + filename + '.json', this.toJson())
     }
     public toJson():object{
         return {"Games": this.games }
@@ -68,5 +71,8 @@ export class HobbyGame{
     }
     public setGames(value: Videogame[]) {
         this.games = value
+    }
+    public static getInstance(name:string):HobbyGame{
+        return new HobbyGame( fs.readJsonSync('./' + name + '.json') ) 
     }
 }

@@ -18,19 +18,9 @@ let re = new Videogame ("residen evil", 2020, [p1,p3], "Japan", d1, ["Russian", 
 let mk = new Videogame("Mario Kart 8", 2017, [p2,p3], "Japan", d1, ["English", "Spanish", "Portuguese", "French"], [sw], 50, 7)
 let store = new HobbyGame([tk,mk,re])
 
-console.log(store.allGamesPriceFrom(ps4))
-console.log(store.allGamesPrice())
-
-store.allGamesAvailableForPlatformAndInLanguagueAndGreterThanFive(sw, "English").forEach(game => { game.print() })
-console.log("-------------------------------------------------------------------------");
-store.allGamesAvailableForPlatformAndInLanguague(sw, "English").forEach(game => game.print())
-console.log("-------------------------------------------------------------------------");
-store.allGamesDevelopedBy(p1).forEach(game => game.print())
-console.log("-------------------------------------------------------------------------");
-store.allGamesInLanguage("Japanese")
-
-// ----------------------------------------------------------------------------------------------
 import * as fs from 'fs-extra'
 fs.writeJsonSync('./hobbyGameBBDD.json', store.toJson())
 
 let store2 = HobbyGame.getInstance('hobbyGameBBDD')
+
+store2.writeOnJSONFile('writeonjsonfile-method')
