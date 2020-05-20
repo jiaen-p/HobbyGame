@@ -22,7 +22,7 @@ export class Person{
     }
     public toString():string{
         let s:string = ''
-        s = this.name + '\n' + this.nationality + '\n' + this.profession + '\n' + this.experienceYears + '\n'
+        s = this.name + ' ' + this.nationality + ' ' + this.profession + ' ' + this.experienceYears + ' '
         return s
     }
     public getName():string{
