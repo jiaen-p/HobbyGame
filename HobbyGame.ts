@@ -8,7 +8,7 @@ export class HobbyGame{
         this.games = games
     }
     public writeOnJSONFile(filename:string){
-        fs.writeJsonSync('./' + filename + '.json', this.toJson())
+        fs.writeFile('./' +  filename + '.json', JSON.stringify(this.games))
     }
     public toJson():object{
         return {"Games": this.games }
@@ -57,14 +57,13 @@ export class HobbyGame{
         return games
     }
     public allGamesAvailableForPlatformAndInLanguagueAndGreterThanFive(p:Platform, language:string){
-        let games:Videogame[] = this.allGamesAvailableForPlatformAndInLanguague(p,language)
-        let g:Videogame[] = []
-        games.forEach(game => {
-            if (game.getScore() > 5){
-                g.push(game)
+        let games: Videogame[] = []
+        this.games.forEach(game => {
+            if(game.availableInLanguage(language) && game.availableInPlatform(p) && game.getScore() > 5){
+                games.push(game)
             }
         })
-        return g
+        return games
     }
     public getGames(): Videogame[] {
         return this.games

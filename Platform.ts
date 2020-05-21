@@ -33,10 +33,10 @@ export class Platform{
         this.color = color
     }
     samePlatform(p:Platform){
-        return this.name === p.getName() && this.releaseYear === p.getReleaseYear() && this.company === p.getCompany()
-            && this.nBits === p.getNBits() && this.generation === p.getGeneration() && this.hasHD === p.getHasHD() &&
-            this.hdSize === p.getHdSize() && this.hasInternetConnection === p.getHasInternetConnection() 
-            && this.storageDevice === p.getStorageDevice() && this.color === p.getColor()
+        return this.name === p.name && this.releaseYear === p.releaseYear && this.company === p.company
+            && this.nBits === p.nBits && this.generation === p.generation && this.hasHD === p.hasHD &&
+            this.hdSize === p.hdSize && this.hasInternetConnection === p.hasInternetConnection
+            && this.storageDevice === p.storageDevice && this.color === p.color
     }
     print(){
         console.log(this.toString())
@@ -103,7 +103,7 @@ export class Platform{
     setHasInternetConnection(hasInternetConnection: boolean){
         this.hasInternetConnection = hasInternetConnection
     }
-    getStorageDevice():string{
+    getStorageDevice():StorageDevices{
         return this.storageDevice
     }
     setStorageDevice(storageDevice: StorageDevices){

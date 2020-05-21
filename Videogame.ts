@@ -29,7 +29,7 @@ export class Videogame{
         let res = false
         let i = 0;
         while (!res && i < this.platforms.length){
-            res = this.platforms[i] === platform
+            res = this.platforms[i].samePlatform(platform)
             i++
         }
         return res
@@ -38,7 +38,7 @@ export class Videogame{
         let res = false
         let i = 0;
         while (!res && i < this.developers.length){
-            res = this.developers[i] === developer
+            res = this.developers[i].samePerson(developer)
             i++
         }
         return res
@@ -54,9 +54,9 @@ export class Videogame{
     }
     public toString(){
         let dev = ''
-        this.developers.forEach(d => dev += d.getName() + ', ')
+        this.developers.forEach(d => dev += d.toString() + ', ')
         let plat = ''
-        this.platforms.forEach(p => plat += p.getName() + ', ')
+        this.platforms.forEach(p => plat += p.toString() + ', ')
         return (`
         Title: ${this.title},
         Released year: ${this.releaseYear},

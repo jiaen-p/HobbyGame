@@ -27,10 +27,10 @@ store.allGamesAvailableForPlatformAndInLanguague(sw, "English").forEach(game => 
 console.log("-------------------------------------------------------------------------");
 store.allGamesDevelopedBy(p1).forEach(game => game.print())
 console.log("-------------------------------------------------------------------------");
-store.allGamesInLanguage("Japanese")
+// store.allGamesInLanguage("Japanese")
 
 // ----------------------------------------------------------------------------------------------
 import * as fs from 'fs-extra'
-fs.writeJsonSync('./hobbyGameBBDD.json', store.toJson())
+fs.writeJsonSync('./hobbyGameBBDD.json', store.toJson() )
 
 let store2 = HobbyGame.getInstance('hobbyGameBBDD')
