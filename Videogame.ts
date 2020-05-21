@@ -1,5 +1,6 @@
 import { Person } from './Person'
 import { Platform } from './Platform'
+type Scores = 0|1|2|3|4|5|6|7|8|9|10;
 export class Videogame{
     private title: string
     private releaseYear: number
@@ -9,11 +10,11 @@ export class Videogame{
     private languages: string[]
     private platforms: Platform[]
     private price: number
-    private score: number
+    private score: Scores
     
     constructor(title: string, releaseYear: number, developers: Person[], 
         nationality: string, director: Person, languages: string[], platforms: Platform[]
-        , price: number, score: 0|1|2|3|4|5|6|7|8|9|10){
+        , price: number, score: Scores){
             this.title = title
             this.releaseYear = releaseYear
             this.developers = developers
@@ -119,10 +120,10 @@ export class Videogame{
     public setPrice(value: number) {
         this.price = value
     }
-    public getScore(): number {
+    public getScore(): Scores {
         return this.score
     }
-    public setScore(value: number) {
+    public setScore(value: Scores) {
         this.score = value
     }
 }

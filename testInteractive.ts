@@ -1,5 +1,4 @@
 import * as rd from 'readline-sync'
-import * as fs from 'fs-extra'
 import { HobbyGame } from './HobbyGame'
 import { Person } from './Person'
 import { Platform } from './Platform'

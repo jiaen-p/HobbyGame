@@ -1,3 +1,12 @@
+enum StorageDevice{
+    dvd = "dvd",
+    cartucho = "cartucho",
+    tarjeta = "tarjeta",
+    cd = "cd", 
+    bluray = "bluray"
+}
+type StorageDevices = keyof typeof StorageDevice
+
 export class Platform{
     private name: string
     private releaseYear: number
@@ -7,11 +16,11 @@ export class Platform{
     private hasHD: boolean
     private hdSize: number
     private hasInternetConnection: boolean
-    private storageDevice: string 
+    private storageDevice: StorageDevices
     private color: string
     constructor(name: string, releaseYear:number, company:string , nBits: number, generation: number,
         hasHD: boolean, hdSize: number, hasInternetConnection: boolean, 
-        storageDevice: "dvd" | "cartucho" | "tarjeta" | "cd" | "bluray", color: string){
+        storageDevice: StorageDevices, color: string){
         this.name = name
         this.releaseYear = releaseYear
         this.company = company
@@ -97,7 +106,7 @@ export class Platform{
     getStorageDevice():string{
         return this.storageDevice
     }
-    setStorageDevice(storageDevice: "dvd" | "cartucho" | "tarjeta" | "cd" | "bluray"){
+    setStorageDevice(storageDevice: StorageDevices){
         this.storageDevice = storageDevice
     }
     getColor():string{
